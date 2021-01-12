@@ -344,6 +344,8 @@ func parseProviderInfo(o *options.Options, msgs []string) []string {
 				p.JWTKey = signKey
 			}
 		}
+	case *providers.DiscordProvider:
+		p.SetUserIds(o.DiscordUserIds)
 	}
 	return msgs
 }

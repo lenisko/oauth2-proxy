@@ -57,6 +57,7 @@ type Options struct {
 	CustomTemplatesDir       string   `flag:"custom-templates-dir" cfg:"custom_templates_dir"`
 	Banner                   string   `flag:"banner" cfg:"banner"`
 	Footer                   string   `flag:"footer" cfg:"footer"`
+	DiscordUserIds            []string   `flag:"discord-user-id" cfg:"discord_user_id"`
 
 	Cookie  Cookie         `cfg:",squash"`
 	Session SessionOptions `cfg:",squash"`
@@ -185,6 +186,7 @@ func NewFlagSet() *pflag.FlagSet {
 	flagSet.String("azure-tenant", "common", "go to a tenant-specific or common (tenant-independent) endpoint.")
 	flagSet.String("bitbucket-team", "", "restrict logins to members of this team")
 	flagSet.String("bitbucket-repository", "", "restrict logins to user with access to this repository")
+	flagSet.StringSlice("discord-user-id", []string{}, "restrict logins to provided user_id's")
 	flagSet.String("github-org", "", "restrict logins to members of this organisation")
 	flagSet.String("github-team", "", "restrict logins to members of this team")
 	flagSet.String("github-repo", "", "restrict logins to collaborators of this repository")
